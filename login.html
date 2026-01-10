@@ -2,16 +2,46 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Football | Login</title>
 <style>
 body {
-    font-family: Arial, sans-serif;
-    background:#0a0a0a;
-    color:white;
+    font-family: "Segoe UI", sans-serif;
+    background-color: #0a0a0a;
+    color: white;
+    margin:0;
+    padding:0;
+}
+nav {
+    background-color: rgba(0, 0, 0, 0.85);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    gap: 2em;
+    padding: 1em 0;
+    backdrop-filter: blur(5px);
+}
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 5px 10px;
+    transition: 0.3s;
+}
+nav a:hover {
+    color: #e63946;
+    transform: scale(1.1);
+}
+.container {
     display:flex;
     justify-content:center;
     align-items:center;
     height:100vh;
+    padding-top:80px;
 }
 form {
     background:#111;
@@ -23,29 +53,43 @@ input, button {
     width:100%;
     padding:10px;
     margin-top:10px;
+    border-radius:5px;
+    border:none;
 }
 button {
     background:#e63946;
     color:white;
-    border:none;
+    cursor:pointer;
+    font-weight:bold;
 }
 </style>
 </head>
 <body>
 
+<nav>
+    <a href="https://b2029coadelacruz.github.io/Q2-Project-Proposal/">HOME</a>
+    <a href="https://kskdheksnd.github.io/Overview/">OVERVIEW</a>
+    <a href="https://kskdheksnd.github.io/Players/">PLAYERS</a>
+    <a href="https://kskdheksnd.github.io/Training/">TRAINING & STATS</a>
+    <a href="https://kskdheksnd.github.io/Hall-of-Fame/">HALL OF FAME</a>
+    <a href="https://kskdheksnd.github.io/login/">LOGIN</a>
+    <a href="https://kskdheksnd.github.io/signup/">SIGNUP</a>
+    <a href="https://kskdheksnd.github.io/profile/">PROFILE</a>
+</nav>
+
+<div class="container">
 <form id="loginForm">
     <h2>Login</h2>
     <input type="text" id="username" placeholder="Username" required>
     <input type="password" id="password" placeholder="Password" required>
     <button type="submit">Login</button>
 </form>
+</div>
 
 <script>
 document.getElementById("loginForm").addEventListener("submit", function(e) {
     e.preventDefault();
-
     const savedUser = JSON.parse(localStorage.getItem("footballUser"));
-
     const username = document.getElementById("username").value;
     const password = document.getElementById("password").value;
 
